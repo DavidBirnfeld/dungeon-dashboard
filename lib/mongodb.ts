@@ -19,8 +19,8 @@ if (state === "production") {
   client = new MongoClient(uri, options);
   clientPromise = client.connect();
 } else {
-  if (_mongoClientPromise) {
-    clientPromise = _mongoClientPromise;
+  if (global._mongoClientPromise) {
+    clientPromise = global._mongoClientPromise;
   } else {
     client = new MongoClient(uri, options);
     clientPromise = client.connect();
