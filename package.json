@@ -9,8 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "mongodb": "^7.2.0",
+    "@auth/mongodb-adapter": "^3.11.2",
+    "mongodb": "^6.21.0",
     "next": "^15.0.0",
+    "next-auth": "^4.24.14",
     "react": "^19",
     "react-dom": "^19"
   },
