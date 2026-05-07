@@ -1,19 +1,36 @@
 import { useRef, useEffect, useState } from "react";
+import { Campaign } from "../campaign-manager/CampaignManager";
 
 export function CreateCampaignModal({
   isOpen,
   onClose,
+  onCampaignCreated,
 }: {
   isOpen: boolean;
   onClose: () => void;
+  onCampaignCreated: (data: Campaign) => void;
 }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form Submitted!");
-    onClose();
+    const data = JSON.stringify({ name, description });
+    const response = await fetch("/api/campaigns", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: data,
+    });
+    const responseData = await response.json();
+    if (response.ok) {
+      onCampaignCreated(responseData);
+      console.log(responseData);
+      onClose();
+    } else {
+      console.log(responseData);
+    }
   };
+
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {

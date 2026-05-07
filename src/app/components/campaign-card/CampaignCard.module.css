@@ -1,0 +1,45 @@
+.card {
+  /* A dark, slightly transparent purple gradient that matches the sidebar vibe */
+  background: linear-gradient(135deg, rgba(45, 27, 78, 0.4) 0%, rgba(26, 15, 46, 0.4) 100%);
+  
+  /* Subtle purple border replacing the light gray */
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  
+  /* Rounded corners to match the 20px on your sidebar, but slightly smaller for inner content */
+  border-radius: 16px; 
+  padding: 20px;
+  
+  /* Deep shadow for depth */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  
+  /* Smooth transitions mirroring your sidebar */
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(8px); /* Optional: Gives a frosted glass effect */
+}
+
+.card:hover {
+  /* The border lights up with your primary purple on hover */
+  border-color: rgba(168, 85, 247, 0.5);
+  
+  /* The shadow gains a slight purple tint to look like a magic glow */
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.15);
+  
+  /* Slight lift */
+  transform: scale(1.05);
+}
+
+.title {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  /* Matching the light purple text from your sidebar profile */
+  color: #e9d5ff; 
+}
+
+.description {
+  margin: 0;
+  font-size: 0.9rem;
+  /* A slightly muted purple for secondary text so the title pops */
+  color: #a78bfa; 
+  line-height: 1.6;
+}

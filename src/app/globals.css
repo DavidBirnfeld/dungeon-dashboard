@@ -11,4 +11,12 @@ html, body {
   padding: 0;
   overflow: hidden;
   display: flex;
+  background-color: #090514; 
+  color: #e9d5ff; /* Default text color matching your sidebar */
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
