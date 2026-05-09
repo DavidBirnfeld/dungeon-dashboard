@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-start; /* Changed from flex-end */
+  margin-top: 1rem;
+}
+
+.createButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #7c3aed; /* Matches your sidebar purple */
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.2);
+}
+
+.createButton:hover {
+  background-color: #9333ea;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+  transform: translateY(-2px);
+}
+
+.createButton:active {
+  transform: scale(0.98) translateY(0);
+}
+
+.cardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,141 @@
+/* Dialog Base & Backdrop */
+.modal {
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  background: linear-gradient(135deg, #1a0f2e 0%, #0a0514 100%);
+  color: #f3f4f6;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  margin: auto; /* Centers the native dialog */
+}
+
+.modal::backdrop {
+  background: rgba(10, 5, 20, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+  padding-bottom: 16px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e9d5ff;
+  margin: 0;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* Form Elements */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #d8b4fe;
+}
+
+.input,
+.textarea {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #f3f4f6;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #a855f7;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.2);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Buttons */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.cancelButton {
+  padding: 10px 16px;
+  background: transparent;
+  color: #d1d5db;
+  border: 1px solid #4b5563;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.submitButton {
+  padding: 10px 20px;
+  background-color: #7c3aed;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.2);
+}
+
+.submitButton:hover {
+  background-color: #9333ea;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+  transform: translateY(-1px);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
