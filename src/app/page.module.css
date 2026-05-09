@@ -1,0 +1,72 @@
+/* Main wrapper taking up the full viewport height */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Dark background to match your app's theme */
+  background-color: #0a0514; 
+  color: #f3f4f6;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Container for logged-in users */
+.dashboardContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header section styling */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+/* Themed gradient title */
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #d8b4fe 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+  letter-spacing: -0.02em;
+}
+
+
+
+/* Area to hold the CampaignManager */
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Container for the guest landing page */
+.guestContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}

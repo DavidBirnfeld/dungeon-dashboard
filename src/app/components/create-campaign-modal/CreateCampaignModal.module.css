@@ -1,29 +1,30 @@
-/* Dialog Base & Backdrop */
+/* The Native Dialog Window */
 .modal {
-  padding: 24px;
-  border-radius: 16px;
+  padding: 1.5rem;
+  border-radius: 1rem;
   border: 1px solid rgba(168, 85, 247, 0.3);
   background: linear-gradient(135deg, #1a0f2e 0%, #0a0514 100%);
   color: #f3f4f6;
   width: 90%;
   max-width: 500px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-  margin: auto; /* Centers the native dialog */
+  margin: auto; /* Required to center native dialogs */
 }
 
+/* Dims and blurs the page behind the modal */
 .modal::backdrop {
   background: rgba(10, 5, 20, 0.7);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
 }
 
-/* Header */
+/* Header Area */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-  padding-bottom: 16px;
+  padding-bottom: 1rem;
 }
 
 .title {
@@ -33,35 +34,36 @@
   margin: 0;
 }
 
-.closeButton {
+/* Top right X button */
+.closeIconButton {
   background: transparent;
   border: none;
   color: #9ca3af;
   cursor: pointer;
-  padding: 4px;
-  border-radius: 6px;
+  padding: 0.25rem;
+  border-radius: 0.375rem;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
 }
 
-.closeButton:hover {
+.closeIconButton:hover {
   background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
+  color: #ef4444; /* Turns red on hover */
 }
 
-/* Form Elements */
+/* Form Layout */
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
-.formGroup {
+.inputGroup {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .label {
@@ -70,13 +72,14 @@
   color: #d8b4fe;
 }
 
+/* Shared styles for Inputs and Textareas */
 .input,
 .textarea {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(168, 85, 247, 0.3);
   color: #f3f4f6;
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
   font-size: 0.95rem;
   font-family: inherit;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -86,28 +89,28 @@
 .textarea:focus {
   outline: none;
   border-color: #a855f7;
-  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.2);
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.2); /* Purple glow on click */
 }
 
 .textarea {
-  resize: vertical;
+  resize: vertical; /* Let user expand height, but not width */
   min-height: 100px;
 }
 
-/* Buttons */
+/* Bottom Action Buttons */
 .footer {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .cancelButton {
-  padding: 10px 16px;
+  padding: 0.625rem 1rem;
   background: transparent;
   color: #d1d5db;
   border: 1px solid #4b5563;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -119,10 +122,10 @@
 }
 
 .submitButton {
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   background-color: #7c3aed;
   color: white;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-weight: 600;
   border: none;
   cursor: pointer;

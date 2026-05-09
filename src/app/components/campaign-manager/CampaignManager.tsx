@@ -4,6 +4,8 @@ import { CreateCampaignModal } from "../create-campaign-modal/CreateCampaignModa
 import { CampaignCard } from "../campaign-card/CampaignCard";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+// 1. Import the CSS module
+import styles from "./CampaignManager.module.css"; 
 
 export interface Campaign {
   _id: string;
@@ -34,22 +36,40 @@ export function CampaignManager() {
   }, []);
 
   return (
-    <article>
-      <button onClick={() => setIsOpen(true)}>Create Campaign</button>
+    // 2. Wrap the whole component in the container style
+    <div className={styles.container}>
+      
+      {/* 3. Wrap your mapped cards in the responsive grid */}
+      <section className={styles.grid}>
+        {campaigns.map((campaign: Campaign) => (
+          <Link 
+            href={`/campaigns/${campaign._id}`} 
+            key={campaign._id}
+            className={styles.cardLink} // Applied link styling
+          >
+            <CampaignCard
+              name={campaign.name}
+              description={campaign.description}
+            />
+          </Link>
+        ))}
+      </section>
+
+      {/* 4. Wrap the button in its container and apply the button styles */}
+      <div className={styles.buttonContainer}>
+        <button 
+          onClick={() => setIsOpen(true)} 
+          className={styles.createButton}
+        >
+          + Create Campaign
+        </button>
+      </div>
+
       <CreateCampaignModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         onCampaignCreated={handleAddCampaign}
       />
-      {campaigns.map((campaign: Campaign) => (
-        <Link href={`/campaigns/${campaign._id}`} key={campaign._id}>
-        <CampaignCard
-          
-          name={campaign.name}
-          description={campaign.description}
-        />
-        </Link>
-      ))}
-    </article>
+    </div>
   );
 }
