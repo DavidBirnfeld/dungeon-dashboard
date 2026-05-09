@@ -2,21 +2,22 @@
 .main {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh; /* Fill the viewport height */
+  flex: 1;       /* Fill the remaining width next to the sidebar */
   /* Dark background to match your app's theme */
   background-color: #0a0514; 
   color: #f3f4f6;
-  padding: 2rem;
   box-sizing: border-box;
 }
 
 /* Container for logged-in users */
 .dashboardContainer {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; 
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 2rem; /* Moved padding here to keep dashboard looking the same */
 }
 
 /* Header section styling */

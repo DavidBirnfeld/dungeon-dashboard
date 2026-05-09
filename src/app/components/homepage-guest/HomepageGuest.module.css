@@ -1,0 +1,43 @@
+.container {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #1a0f2e 0%, #0a0514 100%);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 1rem;
+  max-width: 600px;
+  margin: 0; /* Removed margin to allow perfect centering by the parent */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #e9d5ff;
+}
+
+.description {
+  color: #9ca3af;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.loginButton {
+  padding: 0.875rem 2rem;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.loginButton:hover {
+  background-color: #9333ea;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+}
