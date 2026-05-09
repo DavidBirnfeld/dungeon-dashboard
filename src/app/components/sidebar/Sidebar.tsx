@@ -1,19 +1,20 @@
 "use client";
 
-import { Settings, LogOut } from "lucide-react";
+import { Home, LogOut } from "lucide-react";
 import styles from "./Sidebar.module.css";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 
 interface SidebarProps {
   userName?: string;
   userImage?: string;
-  onSettingsClick?: () => void;
+  onHomeClick?: () => void;
 }
 
 export default function Sidebar({
   userName = "User",
   userImage = "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix",
-  onSettingsClick,
+  onHomeClick,
 }: SidebarProps) {
   return (
     <aside className={styles.sidebar}>
@@ -27,14 +28,15 @@ export default function Sidebar({
 
       {/* Menu Section */}
       <div className={styles.menuSection}>
-        <button
+        <Link
+          href="/"
           className={styles.menuItem}
-          onClick={onSettingsClick}
-          title="Account Settings"
+          onClick={onHomeClick}
+          title="Home"
         >
-          <Settings className={styles.icon} />
-          <span className={styles.menuText}>Settings</span>
-        </button>
+          <Home className={styles.icon} />
+          <span className={styles.menuText}>Home</span>
+        </Link>
       </div>
 
       {/* Sign Out Section */}

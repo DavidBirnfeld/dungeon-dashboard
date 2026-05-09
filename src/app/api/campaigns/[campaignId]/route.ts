@@ -65,3 +65,39 @@ export async function PATCH(
     return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
   }
 }
+
+// DELETE function to delete a campaign
+export async function DELETE(
+  request: Request,
+  { params }: { params: Promise<{ campaignId: string }> }
+) {
+  const { campaignId } = await params;
+
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      return NextResponse.json(
+        { message: "401 Unauthorized" },
+        { status: 401 }
+      );
+    }
+
+    const collection = await getCampaignsCollection();
+
+    const filter = {
+      _id: new ObjectId(campaignId),
+      ownerEmail: session.user?.email,
+    };
+
+    const result = await collection.deleteOne(filter);
+
+    if (result.deletedCount === 0) {
+      return NextResponse.json({ message: "Campaign not found or unauthorized to delete" }, { status: 404 });
+    }
+
+    return NextResponse.json({ message: "Campaign deleted successfully" }, { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
+  }
+}

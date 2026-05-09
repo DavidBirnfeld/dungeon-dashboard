@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import styles from "./GenericModal.module.css";
 
 export function GenericModal({
   isOpen,
@@ -15,16 +16,16 @@ export function GenericModal({
     if (dialogRef.current) {
       if (isOpen && !dialogRef.current.open) {
         dialogRef.current.showModal();
-      } else {
+      } else if (!isOpen && dialogRef.current.open) {
         dialogRef.current.close();
       }
     }
   }, [isOpen]);
 
   return (
-    <dialog ref={dialogRef} onClose={onClose}>
-      <button type="button" onClick={onClose}>
-        X
+    <dialog className={styles.dialog} ref={dialogRef} onClose={onClose}>
+      <button className={styles.closeButton} type="button" onClick={onClose} aria-label="Close">
+        ✕
       </button>
       {children}
     </dialog>

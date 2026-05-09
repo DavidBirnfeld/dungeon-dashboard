@@ -12,11 +12,31 @@ async function getCampaignsCollection() {
   return collection;
 }
 
+export interface Stats {
+  strength: number;
+  dexterity: number;
+  constitution: number;
+  intelligence: number;
+  wisdom: number;
+  charisma: number;
+}
+
+export interface Character {
+  name: string;
+  hp: number;
+  stats: Stats;
+  resistances: string[];
+  vulnerabilities: string[];
+  notes: string;
+}
+
 export interface Campaign {
   _id: string;
   name: string;
   description: string;
   notes?: string[];
+  quests?: string[];
+  party?: Character[];
 }
 
 export default async function CampaignPage({

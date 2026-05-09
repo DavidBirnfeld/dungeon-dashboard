@@ -1,0 +1,249 @@
+/* CampaignEditor.module.css */
+
+.container {
+  /* Your existing colors and basics */
+  background-color: #0b0514;
+  color: #f3e8ff;
+  min-height: 100vh;
+  box-sizing: border-box;
+  
+  /* 1. SLIGHTLY REDUCED PADDING */
+  padding: 48px 32px; 
+  
+  /* 2. THE ANTI-SQUISH RULES */
+  flex: 1;        /* Tells it to fill available space... */
+  width: 100%;    /* ...but not exceed it */
+  min-width: 0;   /* PREVENTS the grid from blowing out the layout */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.title {
+  /* The Fantasy Touch */
+  font-family: 'Playfair Display', 'Lora', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #f3e8ff;
+  letter-spacing: 0.5px;
+}
+
+.contentGrid {
+  display: grid;
+  /* Reduced from 350px to 300px to give it more breathing room */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.section {
+  /* Elevated Card Surface */
+  background-color: #160b2b;
+  border: 1px solid #2d1b4e;
+  border-radius: 12px; /* Consistent geometry */
+  padding: 40px; /* Massive whitespace */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  color: #a78bfa;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  border-bottom: 1px solid #2d1b4e;
+  padding-bottom: 16px;
+}
+
+.item {
+  background-color: #0b0514;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #f3e8ff;
+  /* Thin lines and crisp borders for active/quest items */
+  border-left: 3px solid #fbbf24; 
+}
+
+/* Specific accent for notes to differentiate from quests */
+.noteItem {
+  border-left: 3px solid #06b6d4; /* Cyan for info/notes */
+}
+
+.addButton {
+  align-self: flex-start;
+  background: transparent;
+  color: #a855f7; /* Amethyst Accent */
+  border: 1px solid #2d1b4e;
+  padding: 10px 24px;
+  border-radius: 999px; /* Pill shape */
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 16px;
+  /* Flat, snappy transitions */
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.addButton:hover {
+  background-color: #1f113a; /* Lightened background, no shadow */
+  border-color: #a855f7;
+}
+
+/* --- Modal Content Styling --- */
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.textarea {
+  width: 100%;
+  background-color: #0b0514;
+  border: 1px solid #2d1b4e;
+  border-radius: 8px;
+  padding: 16px;
+  color: #f3e8ff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  min-height: 150px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.textarea:focus {
+  border-color: #a855f7;
+}
+
+.saveButton {
+  background-color: #a855f7;
+  color: #f3e8ff;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.15s ease;
+}
+
+.saveButton:hover {
+  background-color: #9333ea; /* Slightly darker/vibrant solid color */
+}
+
+.item {
+  background-color: #0b0514;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #f3e8ff;
+  border-left: 3px solid #fbbf24; 
+  /* New Flexbox rules to position the delete button */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* Ensure the text takes up the available space so the button stays pushed to the right */
+.itemText {
+  flex: 1;
+  word-break: break-word; /* Prevents long unbroken URLs/words from stretching the box */
+}
+
+/* Specific accent for notes */
+.noteItem {
+  border-left: 3px solid #06b6d4; 
+}
+
+/* Specific accent for party */
+.partyItem {
+  border-left: 3px solid #a855f7; 
+}
+
+.charMeta {
+  font-size: 0.75rem;
+  color: #a78bfa;
+  margin-top: 4px;
+}
+
+.hpDisplay {
+  color: #f43f5e; /* Reddish color to highlight health */
+  font-weight: 700;
+}
+
+/* Destructive Action Button */
+.deleteButton {
+  background: transparent;
+  border: none;
+  color: #a78bfa; /* Muted purple initially so it isn't distracting */
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  line-height: 1;
+  /* Flat, snappy transitions */
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.deleteButton:hover {
+  color: #f43f5e; /* Crimson for destructive action */
+  background-color: rgba(244, 63, 94, 0.1); /* Subtle crimson tint on hover */
+}
+
+.dangerButton {
+  background-color: transparent;
+  color: #f43f5e;
+  border: 1px solid #f43f5e;
+  padding: 10px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.dangerButton:hover {
+  background-color: #f43f5e;
+  color: #f3e8ff;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #2d1b4e;
+  padding-bottom: 16px;
+}
+
+.dashboardButton {
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid #a855f7;
+  color: #a855f7;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
